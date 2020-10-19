@@ -1,3 +1,9 @@
+Pattern for wrapping authorized routes (to avoid redirect check on individual routes)
+https://stackoverflow.com/questions/52620629/react-router-redirect-all-routes-except-one
+
+user avatar files:
+https://randomuser.me/
+
 # Would You Rather Project
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
