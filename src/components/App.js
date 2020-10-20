@@ -20,16 +20,15 @@ class App extends Component {
     return (<Router>
         <Fragment>
           <LoadingBar/>
-          <div className="App">
+          <div className="container-fluid">
             {this.props.loading === true 
             ? null: <div>
-              <Route path='/' exact >
-                {!this.props.loggedIn
-                ? <Redirect to="/login" />
-                : <Home></Home>}
+              <Route path='/' >
+                <Home></Home>
+                {!this.props.loggedIn &&
+                  <Login></Login>}
               </Route>
               <Route path='/logout'></Route>
-              <Route path='/login' component={Login} />
               <Route path='/question/:id' >
                 {!this.props.loggedIn
                 ? <Redirect to="/login" />
