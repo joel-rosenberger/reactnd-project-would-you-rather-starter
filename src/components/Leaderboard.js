@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class Question extends Component {
+class Leaderboard extends Component {
     render() {
         return <div>
-            QUESTION
+            LEADERBOARD
         </div>
     }
 }
@@ -13,4 +13,4 @@ function mapStateToProps() {
 
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(Leaderboard)

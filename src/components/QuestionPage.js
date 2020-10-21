@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 class QuestionPage extends Component {
     render() {
         return <div>
+            QUESTION PAGE
         </div>
     }
 }

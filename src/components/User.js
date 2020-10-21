@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class User extends Component {
 
     handleClick = (e) => {
-        console.log("handleClick", this.props);
+        this.props.onSelectUser(this.props.user)
     }
 
     render() {

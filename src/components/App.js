@@ -2,12 +2,15 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import { setAuthedUser } from '../actions/authedUser'
 import LoadingBar from 'react-redux-loading'
-import Home from './Home'
+import Nav from './Nav'
 import Login from './Login'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
+import Leaderboard from './Leaderboard'
+import Home from './Home'
 
 class App extends Component {
   componentDidMount() {
@@ -23,21 +26,27 @@ class App extends Component {
           <div className="container-fluid">
             {this.props.loading === true 
             ? null: <div>
-              <Route path='/' >
-                <Home></Home>
-                {!this.props.loggedIn &&
-                  <Login></Login>}
+              <Nav></Nav>
+              <Route exact path='/' >
+                {this.props.loggedIn
+                ?<Home></Home>
+                :<Login></Login>}
               </Route>
               <Route path='/logout'></Route>
+              <Route path='/leaderboard'>
+                {this.props.loggedIn
+                  ?<Leaderboard></Leaderboard>
+                  :<Login></Login>}
+              </Route>
               <Route path='/question/:id' >
-                {!this.props.loggedIn
-                ? <Redirect to="/login" />
-                : <QuestionPage></QuestionPage>}
+                {this.props.loggedIn
+                  ?<QuestionPage></QuestionPage>
+                  :<Login></Login>}
               </Route>
               <Route path='/new' >
-                {!this.props.loggedIn
-                ? <Redirect to="/login" />
-                : <NewQuestion></NewQuestion>}
+                {this.props.loggedIn
+                  ?<NewQuestion></NewQuestion>
+                  :<Login></Login>}
               </Route>
             </div>}
           </div>

@@ -4,9 +4,6 @@ import { receiveQuestions } from './questions'
 import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
-//TODO this should be set at login
-const AUTHED_ID = 'tylermcginnis'
-
 export function handleInitialData() {
     return (dispatch) => {
         dispatch(showLoading())
