@@ -12,7 +12,8 @@ export function handleInitialData() {
             .then(({ users, questions }) => {
                 dispatch(receiveUsers(users))
                 dispatch(receiveQuestions(questions))
-                dispatch(setAuthedUser(null))
+                //TODO change back to null 
+                dispatch(setAuthedUser("tylermcginnis"))
                 dispatch(hideLoading())
                 dispatch(changeTab("home"))
         })

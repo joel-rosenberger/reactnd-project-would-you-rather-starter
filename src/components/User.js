@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Avatar from './Avatar'
 
 class User extends Component {
 
@@ -9,10 +10,7 @@ class User extends Component {
 
     render() {
         return <button onClick={this.handleClick} className='list-group-item'>
-            <img 
-            alt={"avatar for " + this.props.user.name}
-            src={this.props.user.avatarURL} 
-            style={{width:"32px", height:"32px", verticalAlign:"middle", marginRight:"20px"}}/>
+            <Avatar user={this.props.user}></Avatar>
             {this.props.user.name}
             </button>
     }
