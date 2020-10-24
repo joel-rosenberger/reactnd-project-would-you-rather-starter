@@ -8,12 +8,13 @@ class Question extends Component {
         <div class="panel-heading">{this.props.user.name} asks:</div>
         <div class="panel-body">
             <div class="media">
-                <div class="media-left media-top">
+                <div class="media-left media-middle">
                     <Avatar user={this.props.user}></Avatar>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Would you rather</h4>
-                    ...{this.props.question.optionOne.text}
+                    <p>...{this.props.question.optionOne.text}</p>
+                    <button>View Poll</button>
                 </div>
             </div>
         </div>

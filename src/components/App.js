@@ -23,7 +23,7 @@ class App extends Component {
     return (<Router>
         <Fragment>
           <LoadingBar/>
-          <div className="container-fluid">
+          <div className="container" style={{width:"600px"}}>
             {this.props.loading === true 
             ? null: <div>
               <Nav></Nav>
@@ -32,7 +32,10 @@ class App extends Component {
                 ?<Home></Home>
                 :<Login></Login>}
               </Route>
-              <Route path='/logout'></Route>
+              <Route path='/logout'>
+                //TODO logout user
+                <Redirect to="/"></Redirect>
+              </Route>
               <Route path='/leaderboard'>
                 {this.props.loggedIn
                   ?<Leaderboard></Leaderboard>

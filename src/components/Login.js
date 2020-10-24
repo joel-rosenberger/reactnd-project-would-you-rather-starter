@@ -38,14 +38,14 @@ class Login extends Component {
             buttonClassNames += " disabled"
         }
         
-        return <div className="panel panel-default">
+        return <div className="panel panel-primary">
             <div className="panel-heading">
                 <h4 className="text-center">Welcome to the Would You Rather App!</h4>
                 </div>
             <div className="panel-body">
                 <h5 className="text-center">Please Login.</h5>
                 <button className="btn btn-default dropdown-toggle" type="button" onClick={this.toggleShowUsers}>
-                    Dropdown
+                    Select a User
                 <span className="caret"></span>
                 </button>
                 {this.state.showUsers && <Fragment>
