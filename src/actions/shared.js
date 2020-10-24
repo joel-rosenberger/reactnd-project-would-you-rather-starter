@@ -3,6 +3,7 @@ import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from './questions'
 import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { changeTab } from '../actions/ui'
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -13,6 +14,7 @@ export function handleInitialData() {
                 dispatch(receiveQuestions(questions))
                 dispatch(setAuthedUser(null))
                 dispatch(hideLoading())
+                dispatch(changeTab("home"))
         })
     }
 }
