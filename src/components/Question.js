@@ -9,7 +9,7 @@ class Question extends Component {
         <div class="panel-body">
             <div class="media">
                 <div class="media-left media-middle">
-                    <Avatar user={this.props.user}></Avatar>
+                    <Avatar size="64px" user={this.props.user}></Avatar>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Would you rather</h4>

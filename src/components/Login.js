@@ -38,7 +38,7 @@ class Login extends Component {
             buttonClassNames += " disabled"
         }
         
-        return <div className="panel panel-primary">
+        return <div className="panel panel-default">
             <div className="panel-heading">
                 <h4 className="text-center">Welcome to the Would You Rather App!</h4>
                 </div>

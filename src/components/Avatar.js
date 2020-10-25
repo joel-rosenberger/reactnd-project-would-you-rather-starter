@@ -5,13 +5,14 @@ class Avatar extends Component {
     render() {
         return <img alt={"avatar for " + this.props.user.name}
             src={this.props.user.avatarURL}
-            style={{ width: "32px", height: "32px", verticalAlign: "middle", marginRight: "20px" }} />
+            style={{ width: this.props.size, height: this.props.size, verticalAlign: "middle", marginRight: "20px" }} />
     }
 }
 
-function mapStateToProps(state, {user}) {
+function mapStateToProps(state, {user, size}) {
     return {
-        user: user
+        user: user,
+        size: size
     }
 }
 

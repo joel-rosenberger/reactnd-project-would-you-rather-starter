@@ -10,7 +10,7 @@ class User extends Component {
 
     render() {
         return <button onClick={this.handleClick} className='list-group-item'>
-            <Avatar user={this.props.user}></Avatar>
+            <Avatar user={this.props.user} size="48px"></Avatar>
             {this.props.user.name}
             </button>
     }

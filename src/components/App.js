@@ -11,6 +11,7 @@ import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import Leaderboard from './Leaderboard'
 import Home from './Home'
+import Logout from './Logout'
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
     return (<Router>
         <Fragment>
           <LoadingBar/>
-          <div className="container" style={{width:"600px"}}>
+          <div className="container-fluid">
             {this.props.loading === true 
             ? null: <div>
               <Nav></Nav>
@@ -33,8 +34,7 @@ class App extends Component {
                 :<Login></Login>}
               </Route>
               <Route path='/logout'>
-                //TODO logout user
-                <Redirect to="/"></Redirect>
+                <Logout></Logout>
               </Route>
               <Route path='/leaderboard'>
                 {this.props.loggedIn

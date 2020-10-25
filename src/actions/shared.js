@@ -13,7 +13,7 @@ export function handleInitialData() {
                 dispatch(receiveUsers(users))
                 dispatch(receiveQuestions(questions))
                 //TODO change back to null 
-                dispatch(setAuthedUser(null))
+                dispatch(setAuthedUser("sarahedo"))
                 dispatch(hideLoading())
                 dispatch(changeTab("home"))
         })
