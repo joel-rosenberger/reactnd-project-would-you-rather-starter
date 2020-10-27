@@ -3,7 +3,7 @@ import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from './questions'
 import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { changeTab } from '../actions/ui'
+import { changeTab, setQuestionFilter, QUESTION_FILTER_ANSWERED } from '../actions/ui'
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -16,6 +16,7 @@ export function handleInitialData() {
                 dispatch(setAuthedUser("sarahedo"))
                 dispatch(hideLoading())
                 dispatch(changeTab("home"))
+                dispatch(setQuestionFilter(QUESTION_FILTER_ANSWERED))
         })
     }
 }
