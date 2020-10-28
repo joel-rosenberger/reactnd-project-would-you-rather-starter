@@ -21,8 +21,7 @@ class Home extends Component {
         ? filter = this.answered
         : filter = this.unanswered
 
-        return <div className="container" style={{width:"600px"}}>
-        <div class="panel panel-default">
+        return <div class="panel panel-default">
             <ul class="nav nav-pills">
                 <li role="presentation" class={this.props.questionFilter===QUESTION_FILTER_ANSWERED?"active":""}><a name={QUESTION_FILTER_ANSWERED} onClick={this.handleFilterChange}>Answered</a></li>
                 <li role="presentation" class={this.props.questionFilter===QUESTION_FILTER_UNANSWERED?"active":""}><a name={QUESTION_FILTER_UNANSWERED} onClick={this.handleFilterChange}>Unanswered</a></li>
@@ -33,7 +32,6 @@ class Home extends Component {
                 .map(id => <Question questionId={id}></Question>)}
             </div>
         </div>
-      </div>
     }
 }
 

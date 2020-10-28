@@ -28,29 +28,31 @@ class App extends Component {
             {this.props.loading === true 
             ? null: <div>
               <Nav></Nav>
-              <Route exact path='/' >
-                {this.props.loggedIn
-                ?<Home></Home>
-                :<Login></Login>}
-              </Route>
-              <Route path='/logout'>
-                <Logout></Logout>
-              </Route>
-              <Route path='/leaderboard'>
-                {this.props.loggedIn
-                  ?<Leaderboard></Leaderboard>
+              <div className="container" style={{width:"600px"}}>
+                <Route exact path='/' >
+                  {this.props.loggedIn
+                  ?<Home></Home>
                   :<Login></Login>}
-              </Route>
-              <Route path='/question/:id' >
-                {this.props.loggedIn
-                  ?<QuestionPage></QuestionPage>
-                  :<Login></Login>}
-              </Route>
-              <Route path='/new' >
-                {this.props.loggedIn
-                  ?<NewQuestion></NewQuestion>
-                  :<Login></Login>}
-              </Route>
+                </Route>
+                <Route path='/logout'>
+                  <Logout></Logout>
+                </Route>
+                <Route path='/leaderboard'>
+                  {this.props.loggedIn
+                    ?<Leaderboard></Leaderboard>
+                    :<Login></Login>}
+                </Route>
+                <Route path='/question/:id' >
+                  {this.props.loggedIn
+                    ?<QuestionPage></QuestionPage>
+                    :<Login></Login>}
+                </Route>
+                <Route path='/new' >
+                  {this.props.loggedIn
+                    ?<NewQuestion></NewQuestion>
+                    :<Login></Login>}
+                </Route>
+              </div>
             </div>}
           </div>
         </Fragment>
