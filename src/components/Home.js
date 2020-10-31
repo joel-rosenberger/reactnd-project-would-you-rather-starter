@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setQuestionFilter, QUESTION_FILTER_ANSWERED, QUESTION_FILTER_UNANSWERED } from '../actions/ui'
+import { setQuestionFilter, QUESTION_FILTER_ANSWERED, QUESTION_FILTER_UNANSWERED, changeTab } from '../actions/ui'
 import Question from './Question'
 import { Link } from 'react-router-dom'
 import NewQuestion from './NewQuestion'
+import { NAV_HOME } from '../actions/ui'
 
 class Home extends Component {
 
-    answered = (question) => question.optionOne.votes.length > 0 ||
-            question.optionTwo.votes.length > 0
+    answered = (question) => question.optionOne.votes.includes(this.props.currentUser) ||
+            question.optionTwo.votes.includes(this.props.currentUser)
 
-    unanswered = (question) => question.optionOne.votes.length === 0 &&
-            question.optionTwo.votes.length === 0
+    unanswered = (question) => !question.optionOne.votes.includes(this.props.currentUser) &&
+            !question.optionTwo.votes.includes(this.props.currentUser)
 
     handleFilterChange = (e) => {
         this.props.dispatch(setQuestionFilter(e.target.name))
+    }
+
+    componentDidMount() {
+        this.props.dispatch(changeTab(NAV_HOME))
     }
 
     render() {
@@ -34,8 +39,8 @@ class Home extends Component {
                 {ids.length > 0 
                 ? ids.map(id => <Question questionId={id}></Question>)
                 :<div>
-                    <h6>No unanswered questions found.</h6>
-                    <h5>Why don't you create a new question?</h5>
+                    <h6>No questions found.</h6>
+                    <h5>Why don't you create a new one?</h5>
                     <NewQuestion></NewQuestion>
                 </div>}
             </div>
@@ -43,12 +48,15 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps({ questions, users, currentQuestionFilter }) {
+function mapStateToProps({ questions, users, currentQuestionFilter, authedUser }) {
+    let questionValues = Object.values(questions)
+    questionValues.sort((q1, q2) => q2.timestamp-q1.timestamp)
     return {
         questions: questions,
-        questionIds: Object.keys(questions),
+        questionIds: questionValues.map(q => q.id),
         userIds: Object.keys(users),
-        questionFilter: currentQuestionFilter
+        questionFilter: currentQuestionFilter,
+        currentUser: authedUser
     }
 }
 

@@ -4,7 +4,12 @@ import Question from './Question'
 
 class QuestionList extends Component {
     render() {
-        return <div></div>
+        return <li role="presentation" 
+        class={this.props.questionFilter===QUESTION_FILTER_ANSWERED?"active":""}>
+            <a name={QUESTION_FILTER_ANSWERED} 
+            onClick={this.handleFilterChange}>Answered
+            </a>
+        </li>
     }
 }
 

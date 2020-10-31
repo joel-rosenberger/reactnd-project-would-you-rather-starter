@@ -42,11 +42,14 @@ class App extends Component {
                     ?<Leaderboard></Leaderboard>
                     :<Login></Login>}
                 </Route>
-                <Route path='/question/:id' >
-                  {this.props.loggedIn
-                    ?<QuestionPage></QuestionPage>
-                    :<Login></Login>}
-                </Route>
+                <Route 
+                path='/question/:id'
+                render = {({match}) => { 
+                  return this.props.loggedIn
+                    ?<Question questionId={match.params.id}></Question>
+                    :<Login></Login>
+                }}
+                />
                 <Route path='/new' >
                   {this.props.loggedIn
                     ?<NewQuestion></NewQuestion>

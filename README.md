@@ -1,8 +1,13 @@
-Pattern for wrapping authorized routes (to avoid redirect check on individual routes)
-https://stackoverflow.com/questions/52620629/react-router-redirect-all-routes-except-one
-
 user avatar files:
 https://randomuser.me/
+
+redirecting after a form submission
+https://gist.github.com/elitan/5e4cab413dc201e0598ee05287ee4338
+
+The theme uses the Bootstrap libraries:
+https://getbootstrap.com/docs/3.4/css/
+https://getbootstrap.com/docs/3.4/components/
+Note that dynamic features of Bootstrap are not used.  All interactivity is hand coded using React/Redux.
 
 # Would You Rather Project
 
