@@ -1,8 +1,9 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { _saveQuestion } from '../utils/_DATA'
+import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 
 export function receiveQuestions(questions) {
     return {
@@ -18,13 +19,20 @@ export function addQuestion(question) {
     }
 }
 
+export function answerQuestion(authedUser, qid, answer) {
+    return {
+        type: ANSWER_QUESTION,
+        authedUser: authedUser, 
+        qid: qid, 
+        answer: answer
+    }
+}
+
 export function handleAddQuestion(optionOne, optionTwo) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
 
         dispatch(showLoading())
-
-        console.log("SAVING")
 
         return _saveQuestion({
             optionOneText: optionOne,
@@ -32,6 +40,22 @@ export function handleAddQuestion(optionOne, optionTwo) {
             author: authedUser,           
         })
         .then((question) => dispatch(addQuestion(question)))
+        .then(() => dispatch(hideLoading()))
+    }
+}
+
+export function handleAnswerQuestion(qid, answer) {
+    return (dispatch, getState) => {
+        const { authedUser } = getState()
+
+        dispatch(showLoading())
+
+        return _saveQuestionAnswer({
+            authedUser: authedUser,
+            qid: qid,
+            answer: answer
+        })
+        .then(() => dispatch(answerQuestion(authedUser, qid, answer)))
         .then(() => dispatch(hideLoading()))
     }
 }

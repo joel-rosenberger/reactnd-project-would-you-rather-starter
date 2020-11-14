@@ -29,7 +29,6 @@ class Nav extends Component {
 }
 
 function mapStateToProps({ currentTab, authedUser, users }) {
-    console.log("userName", users[authedUser])
     return {
         currentTab: currentTab,
         currentUser: users[authedUser]

@@ -6,7 +6,8 @@ import { setAuthedUser } from '../actions/authedUser'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Login from './Login'
-import Question from './Question'
+import QuestionFrame from './QuestionFrame'
+import QuestionAnswer from './QuestionAnswer'
 import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import Leaderboard from './Leaderboard'
@@ -19,8 +20,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("LOGGED IN")
-    console.log(this.props.loggedIn)
     return (<Router>
         <Fragment>
           <LoadingBar/>
@@ -46,7 +45,9 @@ class App extends Component {
                 path='/question/:id'
                 render = {({match}) => { 
                   return this.props.loggedIn
-                    ?<Question questionId={match.params.id}></Question>
+                    ?<QuestionFrame questionId={match.params.id}>
+                      <QuestionAnswer questionId={match.params.id}></QuestionAnswer>
+                    </QuestionFrame>
                     :<Login></Login>
                 }}
                 />

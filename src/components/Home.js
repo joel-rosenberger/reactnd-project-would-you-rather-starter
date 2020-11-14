@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setQuestionFilter, QUESTION_FILTER_ANSWERED, QUESTION_FILTER_UNANSWERED, changeTab } from '../actions/ui'
-import Question from './Question'
+import QuestionFrame from './QuestionFrame'
 import { Link } from 'react-router-dom'
 import NewQuestion from './NewQuestion'
+import QuestionSummary from './QuestionSummary'
 import { NAV_HOME } from '../actions/ui'
 
 class Home extends Component {
@@ -30,14 +31,14 @@ class Home extends Component {
 
         let ids = this.props.questionIds.filter(id => filter(this.props.questions[id]))
 
-        return <div class="panel panel-default">
-            <ul class="nav nav-pills">
-                <li role="presentation" class={this.props.questionFilter===QUESTION_FILTER_ANSWERED?"active":""}><a name={QUESTION_FILTER_ANSWERED} onClick={this.handleFilterChange}>Answered</a></li>
-                <li role="presentation" class={this.props.questionFilter===QUESTION_FILTER_UNANSWERED?"active":""}><a name={QUESTION_FILTER_UNANSWERED} onClick={this.handleFilterChange}>Unanswered</a></li>
+        return <div className="panel panel-default">
+            <ul className="nav nav-pills">
+                <li role="presentation" className={this.props.questionFilter===QUESTION_FILTER_ANSWERED?"active":""}><a name={QUESTION_FILTER_ANSWERED} onClick={this.handleFilterChange}>Answered</a></li>
+                <li role="presentation" className={this.props.questionFilter===QUESTION_FILTER_UNANSWERED?"active":""}><a name={QUESTION_FILTER_UNANSWERED} onClick={this.handleFilterChange}>Unanswered</a></li>
             </ul>
-            <div class="panel-body">
+            <div className="panel-body">
                 {ids.length > 0 
-                ? ids.map(id => <Question questionId={id}></Question>)
+                ? ids.map(id => <QuestionFrame key={id} questionId={id}><QuestionSummary questionId={id}></QuestionSummary></QuestionFrame>)
                 :<div>
                     <h6>No questions found.</h6>
                     <h5>Why don't you create a new one?</h5>

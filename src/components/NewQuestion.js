@@ -40,9 +40,9 @@ class NewQuestion extends Component {
 
     render() {
         const { optionOne, optionTwo } = this.state
-        return <div class="panel panel-default">
-        <div class="panel-heading">Create New Question</div>
-            <div class="panel-body">
+        return <div className="panel panel-default">
+        <div className="panel-heading">Create New Question</div>
+            <div className="panel-body">
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <h6>Complete the question:</h6>
@@ -55,7 +55,7 @@ class NewQuestion extends Component {
                         onChange = {this.handleChange}/>
                     </div>
                     <div className="form-group">
-                        <h5 class="text-center">OR</h5>
+                        <h5 className="text-center">OR</h5>
                     </div>
                     <div className="form-group">
                         <input type="text"
@@ -65,11 +65,11 @@ class NewQuestion extends Component {
                         value = {optionTwo}
                         onChange = {this.handleChange}/>
                     </div>
-                    <div class="btn-group btn-group-justified">
-                        <div class="btn-group">
+                    <div className="btn-group btn-group-justified">
+                        <div className="btn-group">
                             <button 
                             type="submit" 
-                            class=" btn btn-default">Submit</button>
+                            className=" btn btn-default">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -79,6 +79,7 @@ class NewQuestion extends Component {
 }
 
 function mapStateToProps() {
+    return {}
 }
 
 export default withRouter(connect(mapStateToProps)(NewQuestion))
