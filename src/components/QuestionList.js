@@ -1,6 +1,5 @@
-import { react, Component } from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
 
 class QuestionList extends Component {
     render() {

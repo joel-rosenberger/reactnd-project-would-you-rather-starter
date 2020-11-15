@@ -3,9 +3,13 @@ import { connect } from 'react-redux'
 import QuestionFrame from './QuestionFrame'
 import QuestionAnswer from './QuestionAnswer'
 import QuestionStats from './QuestionStats'
+import NotFound from './NotFound'
 
 class QuestionPage extends Component {
     render() {
+        if (!this.props.question) {
+            return <NotFound questionId={this.props.questionId}></NotFound>
+        }
         return this.props.answered
             ? <QuestionStats questionId={this.props.questionId}></QuestionStats>
             : <QuestionFrame questionId={this.props.questionId}>
@@ -15,6 +19,12 @@ class QuestionPage extends Component {
 }
 
 function mapStateToProps({questions, authedUser}, {questionId}) {
+    if (!questions[questionId]) {
+        return {
+            question: null,
+            questionId: questionId
+        }
+    }
     return {
         questionId: questionId,
         question: questions[questionId],

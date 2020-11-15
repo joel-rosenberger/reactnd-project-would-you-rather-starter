@@ -2,19 +2,6 @@
 
 ## Description
 This is an implementation of the Udacity Would You Rather starter, which includes the following features:
-
-## Installing and Running
-This app requires node.js.
-
-1. Clone this repository.
-2. Navigate to the repo directory.
-3. Execute the following from the command line:
-    ```bash
-    npm install
-    npm start
-    ```
-## Features
-
 * Login by selecting a user from the dropdown.
 * Choose the Home nav option to view all questions.
     * Choose a tab:
@@ -26,6 +13,17 @@ This app requires node.js.
     * Enter the questions and two possible answers, then submit the form.
 * Choose the Leaderboard nav option to display the scores for each user.
 * Click logout to quit the application or login as a different user.
+
+## Installing and Running
+This app requires node.js.
+
+1. Clone this repository.
+2. Navigate to the repo directory.
+3. Execute the following from the command line:
+    ```bash
+    npm install
+    npm start
+    ```
 
 ## Architecture
 
