@@ -22,7 +22,7 @@ class QuestionAnswer extends Component {
 
         this.props.dispatch(handleAnswerQuestion(this.props.question.id, this.state.selected))
 
-        this.props.history.push('/')
+        this.props.history.push('/question/' + this.props.questionId)
     }
 
     render() {

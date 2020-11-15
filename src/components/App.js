@@ -6,8 +6,6 @@ import { setAuthedUser } from '../actions/authedUser'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Login from './Login'
-import QuestionFrame from './QuestionFrame'
-import QuestionAnswer from './QuestionAnswer'
 import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import Leaderboard from './Leaderboard'
@@ -45,9 +43,7 @@ class App extends Component {
                 path='/question/:id'
                 render = {({match}) => { 
                   return this.props.loggedIn
-                    ?<QuestionFrame questionId={match.params.id}>
-                      <QuestionAnswer questionId={match.params.id}></QuestionAnswer>
-                    </QuestionFrame>
+                    ?<QuestionPage questionId={match.params.id}></QuestionPage>
                     :<Login></Login>
                 }}
                 />
