@@ -2,16 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
+import { withRouter } from 'react-router-dom'
 
 class Logout extends Component {
-    render() {
+
+    componentDidMount() {
         this.props.dispatch(setAuthedUser(null))
-        return <Redirect to="/"></Redirect>
+        this.props.history.push("/")
+    }
+
+    render() {
+        return null;
     }
 }
 
-function mapStateToProps() {
 
+
+function mapStateToProps() {
+    return {}
 }
 
-export default connect(mapStateToProps)(Logout)
+export default withRouter(connect(mapStateToProps)(Logout))

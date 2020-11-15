@@ -13,7 +13,7 @@ export function handleInitialData() {
                 dispatch(receiveUsers(users))
                 dispatch(receiveQuestions(questions))
                 //TODO change back to null 
-                dispatch(setAuthedUser("sarahedo"))
+                dispatch(setAuthedUser(null))
                 dispatch(hideLoading())
                 dispatch(setQuestionFilter(QUESTION_FILTER_UNANSWERED))
         })

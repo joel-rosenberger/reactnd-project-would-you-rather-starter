@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addQuestion, handleAddQuestion } from '../actions/questions'
+import { handleAddQuestion, ANSWER_OPTION_ONE, ANSWER_OPTION_TWO } from '../actions/questions'
 import { withRouter } from 'react-router-dom'
-
 class NewQuestion extends Component {
     state = {
         optionOne: '',
@@ -12,7 +11,7 @@ class NewQuestion extends Component {
     handleChange = (e) => {
         const target = e.target;
         const value = target.value;
-        if (target.name == "optionOne") {
+        if (target.name == ANSWER_OPTION_ONE) {
             this.setState(() => ({
                 optionOne: value
             }))
@@ -48,7 +47,7 @@ class NewQuestion extends Component {
                         <h6>Complete the question:</h6>
                         <h5>Would you rather...</h5>
                         <input type="text"
-                        name="optionOne" 
+                        name={ANSWER_OPTION_ONE}
                         className="form-control" 
                         placeholder="Enter option one text"
                         value = {optionOne}
@@ -59,7 +58,7 @@ class NewQuestion extends Component {
                     </div>
                     <div className="form-group">
                         <input type="text"
-                        name="optionTwo" 
+                        name={ANSWER_OPTION_TWO}
                         className="form-control" 
                         placeholder="Enter option two text"
                         value = {optionTwo}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Avatar from './Avatar'
+import QuestionStatPanel from './QuestionStatPanel'
+import { ANSWER_OPTION_ONE, ANSWER_OPTION_TWO } from '../actions/questions'
 
 class QuestionStats extends Component {
 
@@ -16,23 +18,8 @@ class QuestionStats extends Component {
                 </div>
                 <div className="media-body">
                     <h3>Results</h3> 
-                    <div className="card text-white bg-dark mb-3" style={{"max-width": "18rem"}}></div>
-                    <div className="card-body">
-                        <h5 className="card-title">Your Answer</h5>
-                        <h4>{this.props.question.optionOne.text}</h4>
-                        <div className="progress">
-                            <div className="progress-bar" role="progressbar" style={{width: "50%"}}>50%</div>
-                        </div>
-                        <p className="card-text">1 out of 2 votes</p>
-                    </div>
-                    <div className="card text-white bg-dark mb-3" style={{"max-width": "18rem"}}></div>
-                    <div className="card-body">
-                        <h4>{this.props.question.optionTwo.text}</h4>
-                        <div className="progress">
-                            <div className="progress-bar" role="progressbar" style={{width: "50%"}}>50%</div>
-                        </div>
-                        <p className="card-text">1 out of 2 votes</p>
-                    </div>
+                    <QuestionStatPanel questionId={this.props.questionId} answer={ANSWER_OPTION_ONE}></QuestionStatPanel>
+                    <QuestionStatPanel questionId={this.props.questionId} answer={ANSWER_OPTION_TWO}></QuestionStatPanel>
                 </div>
             </div>
         </div>

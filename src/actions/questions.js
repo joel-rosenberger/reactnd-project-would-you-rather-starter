@@ -4,6 +4,8 @@ import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const ANSWER_OPTION_ONE = "optionOne"
+export const ANSWER_OPTION_TWO = "optionTwo"
 
 export function receiveQuestions(questions) {
     return {

@@ -18,8 +18,10 @@ function mapStateToProps({questions, authedUser}, {questionId}) {
     return {
         questionId: questionId,
         question: questions[questionId],
-        answered: questions[questionId].optionOne.votes.includes(authedUser) ||
+        answered: authedUser
+        ? questions[questionId].optionOne.votes.includes(authedUser) ||
             questions[questionId].optionTwo.votes.includes(authedUser)
+        : false
     }
 }
 

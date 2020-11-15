@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { handleAnswerQuestion } from '../actions/questions'
+import { handleAnswerQuestion,
+    ANSWER_OPTION_ONE, 
+    ANSWER_OPTION_TWO } from '../actions/questions'
 
 class QuestionAnswer extends Component {
     state = {
-        selected: "optionOne"
+        selected: ANSWER_OPTION_ONE
     }
 
     handleChange = (e) => {
@@ -31,13 +33,13 @@ class QuestionAnswer extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="radio">
                             <label>
-                                <input type="radio" name="optionOne" checked={this.state.selected == "optionOne"} onChange={ this.handleChange }/>
+                                <input type="radio" name={ANSWER_OPTION_ONE} checked={this.state.selected == "optionOne"} onChange={ this.handleChange }/>
                                 {this.props.question.optionOne.text}
                             </label>
                         </div>
                         <div className="radio">
                             <label>
-                                <input type="radio" name="optionTwo" checked={this.state.selected == "optionTwo"} onChange={ this.handleChange }/>
+                                <input type="radio" name={ANSWER_OPTION_TWO} checked={this.state.selected == "optionTwo"} onChange={ this.handleChange }/>
                                 {this.props.question.optionTwo.text}
                             </label>
                         </div>
