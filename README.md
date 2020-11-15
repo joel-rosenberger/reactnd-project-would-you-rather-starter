@@ -1,111 +1,54 @@
-user avatar files:
-https://randomuser.me/
-
-redirecting after a form submission
-https://gist.github.com/elitan/5e4cab413dc201e0598ee05287ee4338
-
-The theme uses the Bootstrap libraries:
-https://getbootstrap.com/docs/3.4/css/
-https://getbootstrap.com/docs/3.4/components/
-Note that dynamic features of Bootstrap are not used.  All interactivity is hand coded using React/Redux.
-
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+## Description
+This is an implementation of the Udacity Would You Rather starter, which includes the following features:
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+## Installing and Running
+This app requires node.js.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+1. Clone this repository.
+2. Navigate to the repo directory.
+3. Execute the following from the command line:
+    ```bash
+    npm install
+    npm start
+    ```
+## Features
 
-## Data
+* Login by selecting a user from the dropdown.
+* Choose the Home nav option to view all questions.
+    * Choose a tab:
+        * Answered: questions that this user has answered.
+        * Unanswered: questions that this used has not answered.        
+    * View statistics by clicking an answered question.
+    * Answer an unanswered question by clicking on it, choosing an answer, and saving the form.
+* Choose the New nav option to create a new question.
+    * Enter the questions and two possible answers, then submit the form.
+* Choose the Leaderboard nav option to display the scores for each user.
+* Click logout to quit the application or login as a different user.
 
-There are two types of objects stored in our database:
+## Architecture
 
-* Users
-* Questions
+This is a React/Redux application, organized into the following folder structure:
+* actions: Redux action creators.
+* components: React components.  App.js is the starting point.
+* middleware: Redux middleware setup, including thunk plus a logger (from the lesson materials.)
+* reducers: Redux reducers.
+* utils: JSON data and API provided by the starter project.
 
-### Users
+## Acknowledgements
+The playful avatar files were sourced from https://randomuser.me
 
-Users include:
+The solution for redirecting after a form submission was based on the discussion at https://gist.github.com/elitan/5e4cab413dc201e0598ee05287ee4338
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+The theme uses the following Bootstrap libraries.  Note that the dynamic features of Bootstrap are not used.  All interactivity was hand coded using React/Redux.
 
-### Questions
+The architecture is based on the examples provided in the lesson materials from Udacity's React Nanodegree program.
 
-Questions include:
+https://getbootstrap.com/docs/3.4/css/
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
-
-### Voting Options
-
-Voting options are attached to questions. They include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
-
-Your code will talk to the database via 4 methods:
-
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
-
-1) `_getUsers()` Method
-
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
-
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database.  
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
+https://getbootstrap.com/docs/3.4/components/
 
 ## Contributing
 
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+This repository is a student project, so pull requests are not likely to be accepted. For details about the original Udacity starter project, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
